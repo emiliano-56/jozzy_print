@@ -1,222 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Testimonials - Jozzy Print</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Graphic Designer Portfolio</title>
+
+  <!-- Bootstrap 4 CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      width: 100%;
-      overflow-x: hidden; /* Prevent horizontal scroll */
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Poppins', sans-serif;
       background-color: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
     }
 
-    section {
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    h1 {
+    .portfolio-section {
+      padding: 80px 0;
       text-align: center;
-      color: #333;
+    }
+
+    .portfolio-title {
+      color: #fd7e14;
       font-weight: 700;
       margin-bottom: 10px;
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
 
-    p.subtitle {
-      text-align: center;
+    .portfolio-subtitle {
       color: #6c757d;
       margin-bottom: 50px;
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
 
-    .testimonial-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 25px;
-      justify-items: center;
-      width: 100%;
-    }
-
-    .testimonial-card {
-      background: #fff;
-      border-radius: 20px;
-      border: 2px solid transparent;
-      padding: 25px 20px;
-      text-align: center;
-      transition: all 0.4s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    .video-container {
       position: relative;
       overflow: hidden;
-      width: 100%;
-      max-width: 360px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .testimonial-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 20px;
-      border: 2px solid #fd7e14;
-      transform: scale(0);
-      opacity: 0;
-      transition: all 0.4s ease;
+    .video-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
-    .testimonial-card:hover::before {
-      transform: scale(1);
-      opacity: 1;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    .client-img {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      border: 3px solid #fd7e14;
-      object-fit: cover;
-      margin-bottom: 15px;
-      transition: transform 0.4s ease;
-    }
-
-    .testimonial-card:hover .client-img {
-      transform: scale(1.05);
-    }
-
-    .client-name {
-      font-size: 1.1rem;
+    .cta-btn {
+      margin-top: 50px;
+      background-color: #fd7e14;
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
       font-weight: 600;
-      color: #333;
-      margin-bottom: 5px;
+      transition: all 0.3s ease;
     }
 
-    .client-role {
-      font-size: 0.9rem;
-      color: #777;
-      margin-bottom: 15px;
-    }
-
-    .testimonial-text {
-      font-size: 0.9rem;
-      color: #555;
-      margin-bottom: 15px;
-      line-height: 1.6;
-    }
-
-    .rating {
-      color: #fd7e14;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 992px) {
-      section {
-        padding: 60px 15px;
-      }
-      .testimonial-card {
-        max-width: 320px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      p.subtitle {
-        font-size: 0.95rem;
-      }
-
-      section {
-        padding: 50px 10px;
-      }
-
-      .testimonial-card {
-        padding: 20px 15px;
-      }
-
-      .client-img {
-        width: 80px;
-        height: 80px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.6rem;
-      }
-
-      p.subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 35px;
-      }
-
-      .testimonial-card {
-        padding: 18px;
-        border-radius: 15px;
-      }
-
-      .client-img {
-        width: 70px;
-        height: 70px;
-      }
+    .cta-btn:hover {
+      background-color: #e46f0c;
     }
   </style>
 </head>
 <body>
 
-  <section>
-    <h1>What Our Clients Say</h1>
-    <p class="subtitle">Trusted by businesses, creators, and brands who love our design and print work.</p>
+  <!-- Portfolio Section -->
+  <section class="portfolio-section" id="portfolio">
+    <div class="container">
+      <h2 class="portfolio-title">My Graphic Design Works</h2>
+      <p class="portfolio-subtitle">A few samples from my previous projects showcasing creativity and motion design.</p>
 
-    <div class="testimonial-container">
-      
-      <!-- Card 1 -->
-      <div class="testimonial-card">
-        <img src="https://images.unsplash.com/photo-1495603889488-42d1d66e5523?auto=format&fit=crop&q=60&w=500" alt="Client 1" class="client-img" />
-        <h3 class="client-name">Chika Okafor</h3>
-        <p class="client-role">Entrepreneur</p>
-        <p class="testimonial-text">“Jozzy Print helped me launch my brand with a logo that truly represents me. Their professionalism and creativity are top-notch!”</p>
-        <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="row justify-content-center">
+        <!-- Video 1 -->
+        <div class="col-md-5 mb-4">
+          <div class="video-container">
+            <video width="100%" controls poster="https://via.placeholder.com/500x280.png?text=Design+Sample+1">
+              <source src="images/V2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="col-md-5 mb-4">
+          <div class="video-container">
+            <video width="100%" controls poster="https://via.placeholder.com/500x280.png?text=Design+Sample+2">
+              <source src="images/V2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="testimonial-card">
-        <img src="https://images.unsplash.com/photo-1614890107637-fe96d74acf4b?auto=format&fit=crop&q=60&w=500" alt="Client 2" class="client-img" />
-        <h3 class="client-name">Adekunle Bright</h3>
-        <p class="client-role">Event Planner</p>
-        <p class="testimonial-text">“Every print came out perfect — from banners to souvenirs. The colors and finishing were superb. I’ll definitely use them again.”</p>
-        <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="testimonial-card">
-        <img src="https://images.unsplash.com/photo-1611432579402-7037e3e2c1e4?auto=format&fit=crop&q=60&w=500" alt="Client 3" class="client-img" />
-        <h3 class="client-name">Blessing Emeka</h3>
-        <p class="client-role">Fashion Designer</p>
-        <p class="testimonial-text">“The packaging design and 3D previews were amazing! My products now look so premium — all thanks to Jozzy Print.”</p>
-        <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      </div>
-
+  
     </div>
   </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
